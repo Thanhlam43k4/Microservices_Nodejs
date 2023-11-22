@@ -1,0 +1,50 @@
+GET http://localhost:8083/shopping-home
+Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhvbGV0ZXgiLCJpYXQiOjE3MDA0Njg2NDAsImV4cCI6MTcwMDQ2ODY3MH0.UJAK6atd41LxKOOWIQCnnSJdTSVQ2hzvlzf9l0fk_cg
+###
+
+POST http://localhost:803/login
+Content-Type: application/json
+
+{
+    "username": "holetex"   
+}
+
+
+### Customer API 
+
+#Get Detail User
+GET http://localhost:8003/11
+
+###
+#Login
+
+POST http://localhost:8003/login
+Content-Type: application/json
+
+{
+    "email": "lamcoivodoi123@gmail.com",
+    "password": "lamcoivodoi123"
+}
+
+###
+#Signup API
+
+POST http://localhost:8003/signup
+Content-Type: application/json
+
+{
+    "username": "huyengtrang",
+    "email": "lamcoivodoi123@gmail.com",
+    "password": "lamcoivodoi123"
+}
+
+###
+#Update Infor Customer
+POST http://localhost:8003/9/add-info
+Content-Type: application/json
+
+{
+    "address" : "Thi Tran Binh My",
+    "phoneNumber" : "0973688222"
+}
+

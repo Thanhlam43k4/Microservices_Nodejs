@@ -1,0 +1,3 @@
+#Get product API
+
+GET  http://localhost:8002/get-product/7

@@ -1,0 +1,25 @@
+#Add-product
+POST http://localhost:8001/add-products
+Content-Type: application/json
+
+{
+    "name": "Broccoli",
+    "type":  "Vegetables",
+    "amount": 10000
+}
+
+###
+#Get-All-product
+GET http://product:8001/api/v1/data
+
+###
+#View-details product
+GET http://localhost:8001/6
+
+###
+POST http://localhost:8001
+Content-Type: application/json
+
+{
+    "id" : "6",
+}
