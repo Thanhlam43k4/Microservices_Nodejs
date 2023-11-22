@@ -1,7 +1,7 @@
 version : "3.8"
 services:
   product:
-    image: product-micro
+    image: thanhlam2k4/product-micro:3.0
     container_name: product
     ports:
       - "8001:8001"    
@@ -17,7 +17,7 @@ services:
     # build:docker 
     #   dockerfile: Dockerfile
     #   context: ./customer
-    image: customer-micro:5.0
+    image: thanhlam2k4/customer-micro:3.0
     container_name: customer
     ports:
       - 8003:8003
@@ -32,7 +32,7 @@ services:
     # build:
     #   dockerfile: Dockerfile
     #   context: ./shopping
-    image: shopping-micro
+    image: thanhlam2k4/shopping-micro:3.0
     container_name: shopping
     ports:
       - "8002:8002"     
