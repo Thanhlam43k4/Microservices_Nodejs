@@ -44,8 +44,6 @@ services:
     - "mysql_server"  
     networks:
     - micro_net  
-
-
   mysql_server:
     container_name: mysql_server
     image: mysql
@@ -57,7 +55,9 @@ services:
     ports: 
     - "3307:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - mysql-data:/var/lib/mysql
+      
     networks:
       - micro_net
   phpmyadmin:
