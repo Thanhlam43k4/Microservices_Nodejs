@@ -16,10 +16,10 @@ services:
     networks:
       - micro_net
   product:
-    # build: 
-    #   dockerfile: Dockerfile
-    #   context: ./product
-    image: thanhlam2k4/product-micro:4.0
+    build: 
+      dockerfile: Dockerfile
+      context: ./product
+    # image: thanhlam2k4/product-micro:4.0
     container_name: product
     ports:
       - "8001:8001"  
