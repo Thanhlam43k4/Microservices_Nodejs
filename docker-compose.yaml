@@ -54,8 +54,8 @@ services:
     ports: 
     - "3307:3306"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      # - mysql-data:/var/lib/mysql
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-data:/var/lib/mysql
       
     networks:
       - micro_net
