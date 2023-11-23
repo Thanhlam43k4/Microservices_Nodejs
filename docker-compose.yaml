@@ -1,48 +1,48 @@
 version : "3.8"
 services:
-  # product:
-  #   image: thanhlam2k4/product-micro:3.0
-  #   container_name: product
-  #   ports:
-  #     - "8001:8001"    
-  #   volumes:
-  #   - .:/app
-  #     - /app/product/node_modules
-  #   depends_on:
-  #   - "mysql_server"
-  #   networks:
-  #     - micro_net
+  product:
+    image: thanhlam2k4/product-micro:3.0
+    container_name: product
+    ports:
+      - "8001:8001"    
+    volumes:
+    - .:/app
+      - /app/product/node_modules
+    depends_on:
+    - "mysql_server"
+    networks:
+      - micro_net
 
-  # customer:
-  #   # build:docker 
-  #   #   dockerfile: Dockerfile
-  #   #   context: ./customer
-  #   image: thanhlam2k4/customer-micro:3.0
-  #   container_name: customer
-  #   ports:
-  #     - 8003:8003
-  #   volumes:  
-  #     - .:/app 
-  #   depends_on:
-  #   - "mysql_server"
-  #   networks:
-  #     - micro_net
+  customer:
+    # build:docker 
+    #   dockerfile: Dockerfile
+    #   context: ./customer
+    image: thanhlam2k4/customer-micro:3.0
+    container_name: customer
+    ports:
+      - 8003:8003
+    volumes:  
+      - .:/app 
+    depends_on:
+    - "mysql_server"
+    networks:
+      - micro_net
 
-  # shopping:
-  #   # build:
-  #   #   dockerfile: Dockerfile
-  #   #   context: ./shopping
-  #   image: thanhlam2k4/shopping-micro:3.0
-  #   container_name: shopping
-  #   ports:
-  #     - "8002:8002"     
-  #   volumes:
-  #     - .:/app
-  #     - /app/shopping/node_modules
-  #   depends_on:
-  #   - "mysql_server"  
-  #   networks:
-  #   - micro_net  
+  shopping:
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: ./shopping
+    image: thanhlam2k4/shopping-micro:3.0
+    container_name: shopping
+    ports:
+      - "8002:8002"     
+    volumes:
+      - .:/app
+      - /app/shopping/node_modules
+    depends_on:
+    - "mysql_server"  
+    networks:
+    - micro_net  
 
   mysql_server:
     container_name: mysql_server
@@ -59,16 +59,16 @@ services:
       - mysql-data:/var/lib/mysql
     networks:
       - micro_net
-  phpmyadmin:
-    container_name: phpmyadmin
-    image: phpmyadmin:5.2.1
-    environment:
-    - PMA_HOST=mysql_server
-    - PMA_ARBITARY=1
-    ports:
-    - 8085:80 
-    networks:
-      - micro_net
+  # phpmyadmin:
+  #   container_name: phpmyadmin
+  #   image: phpmyadmin:5.2.1
+  #   environment:
+  #   - PMA_HOST=mysql_server
+  #   - PMA_ARBITARY=1
+  #   ports:
+  #   - 8085:80 
+  #   networks:
+  #     - micro_net
   
 networks:
   micro_net:
