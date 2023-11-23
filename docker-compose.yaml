@@ -49,7 +49,7 @@ services:
     - "3307:3306"
     volumes:
     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      # - mysql-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     networks:
       - micro_net
   
@@ -68,5 +68,5 @@ networks:
   micro_net:
     external: true  
   
-# volumes:
-#   mysql-data:
+volumes:
+  mysql-data:
