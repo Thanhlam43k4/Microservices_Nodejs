@@ -31,6 +31,7 @@ services:
     container_name: customer
     ports:
       - 8003:8003
+    restart: always
     depends_on:
     - "mysql_server"
     networks:
@@ -43,10 +44,8 @@ services:
     image: thanhlam2k4/shopping-micro:4.0
     container_name: shopping
     ports:
-      - "8002:8002"     
-    volumes:
-      - .:/app
-      - /app/shopping/node_modules
+     - "8002:8002"  
+    restart: always   
     depends_on:
     - "mysql_server"  
     networks:
