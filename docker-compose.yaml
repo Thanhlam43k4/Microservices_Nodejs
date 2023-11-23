@@ -1,5 +1,20 @@
 version : "3.8"
 services:
+  mysql_server:
+    container_name: mysql_server
+    image: mysql
+    environment:
+     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+     - MYSQL_USER=${MYSQL_USER}
+     - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+     - MYSQL_DATABASE=customer_db
+    ports: 
+    - "3307:3306"
+    volumes:
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-data:/var/lib/mysql
+    networks:
+      - micro_net
   product:
     image: thanhlam2k4/product-micro:4.0
     container_name: product
@@ -44,21 +59,7 @@ services:
     networks:
     - micro_net  
 
-  mysql_server:
-    container_name: mysql_server
-    image: mysql
-    environment:
-     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-     - MYSQL_USER=${MYSQL_USER}
-     - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-     - MYSQL_DATABASE=customer_db
-    ports: 
-    - "3307:3306"
-    volumes:
-      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mysql-data:/var/lib/mysql
-    networks:
-      - micro_net
+  
   # phpmyadmin:
   #   container_name: phpmyadmin
   #   image: phpmyadmin:5.2.1
