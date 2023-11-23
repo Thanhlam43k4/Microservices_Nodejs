@@ -21,7 +21,7 @@ services:
     ports:
       - "8001:8001"    
     volumes:
-    - .:/app
+      - .:/app
       - /app/product/node_modules
     depends_on:
     - "mysql_server"
@@ -38,6 +38,7 @@ services:
       - 8003:8003
     volumes:  
       - .:/app 
+      - /app/customer/node_modules
     depends_on:
     - "mysql_server"
     networks:

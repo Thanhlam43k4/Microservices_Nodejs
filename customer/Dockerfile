@@ -11,4 +11,7 @@ RUN npm install bcryptjs
 COPY . . 
 
 
+VOLUME [ "/app/customer/node_modules" ]
+
+
 CMD ["npm","run","dev"]
