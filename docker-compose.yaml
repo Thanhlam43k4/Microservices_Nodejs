@@ -24,8 +24,6 @@ services:
     ports:
       - "8001:8001"  
     restart: always  
-    volumes:
-      - .:/app
     depends_on:
     - "mysql_server"
     networks:
