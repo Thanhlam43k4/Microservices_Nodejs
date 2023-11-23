@@ -30,7 +30,7 @@ services:
     image: thanhlam2k4/customer-micro:4.0
     container_name: customer
     ports:
-      - 8003:8003
+      - "8003:8003"
     restart: always
     depends_on:
     - "mysql_server"
