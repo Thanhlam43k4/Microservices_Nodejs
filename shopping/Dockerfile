@@ -9,7 +9,6 @@ RUN npm install
 
 COPY . . 
 
-
 VOLUME [ "/app/shopping/node_modules" ]
 
 CMD ["npm","run","dev"]
