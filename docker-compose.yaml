@@ -22,7 +22,8 @@ services:
     image: thanhlam2k4/product-micro:4.0
     container_name: product
     ports:
-      - "8001:8001"    
+      - "8001:8001"  
+    restart: always  
     volumes:
       - .:/app
       - /app/product/node_modules
