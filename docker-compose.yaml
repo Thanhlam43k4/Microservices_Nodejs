@@ -1,7 +1,7 @@
 version : "3.8"
 services:
   product:
-    image: thanhlam2k4/product-micro:3.0
+    image: thanhlam2k4/product-micro:4.0
     container_name: product
     ports:
       - "8001:8001"    
