@@ -36,7 +36,6 @@ services:
     container_name: shopping
     ports:
       - "8002:8002"     
-    restart: always
     volumes:
       - .:/app
       - /app/shopping/node_modules
