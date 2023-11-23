@@ -1,9 +1,10 @@
 version : "3.8"
 services: 
   test-app:
-    build: 
-      dockerfile: Dockerfile
-      context: .
+    # build: 
+    #   dockerfile: Dockerfile
+    #   context: .
+    image: thanhlam2k4/test-app-demo
     container_name: testapp
     ports:
       - 3000:3000 
