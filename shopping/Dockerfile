@@ -1,14 +1,12 @@
 FROM node:14
 
-WORKDIR /app/shopping
+WORKDIR /app
 
-COPY package*.json ./
+COPY . /app
 
+# RUN npm cache clean --force
 
 RUN npm install
 
-COPY . . 
-
-VOLUME [ "/app/shopping/node_modules" ]
 
 CMD ["npm","run","dev"]

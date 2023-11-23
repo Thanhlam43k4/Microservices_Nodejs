@@ -9,4 +9,4 @@ COPY . /app
 RUN npm install
 
 
-CMD node src/server.js
+CMD ["npm","run","dev"]
