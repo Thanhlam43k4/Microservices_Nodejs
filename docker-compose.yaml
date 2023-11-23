@@ -36,7 +36,7 @@ services:
     - "mysql_server"  
     networks:
     - micro_net  
-    
+
   mysql_server:
     container_name: mysql_server
     image: mysql
@@ -53,16 +53,16 @@ services:
     networks:
       - micro_net
   
-  phpmyadmin:
-    container_name: phpmyadmin
-    image: phpmyadmin:5.2.1
-    environment:
-    - PMA_HOST=mysql_server
-    - PMA_ARBITARY=1
-    ports:
-    - 8085:80 
-    networks:
-      - micro_net
+  # phpmyadmin:
+  #   container_name: phpmyadmin
+  #   image: phpmyadmin:5.2.1
+  #   environment:
+  #   - PMA_HOST=mysql_server
+  #   - PMA_ARBITARY=1
+  #   ports:
+  #   - 8085:80 
+  #   networks:
+  #     - micro_net
   
 networks:
   micro_net:
