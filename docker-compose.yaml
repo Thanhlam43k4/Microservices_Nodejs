@@ -26,7 +26,6 @@ services:
     restart: always  
     volumes:
       - .:/app
-      - /app/product/node_modules
     depends_on:
     - "mysql_server"
     networks:
