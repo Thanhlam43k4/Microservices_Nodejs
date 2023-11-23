@@ -31,37 +31,37 @@ services:
     networks:
       - micro_net
 
-  customer:
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: ./customer
-    image: thanhlam2k4/customer-micro:4.0
-    container_name: customer
-    ports:
-      - 8003:8003
-    volumes:  
-      - .:/app 
-      - /app/customer/node_modules
-    depends_on:
-    - "mysql_server"
-    networks:
-      - micro_net
+  # customer:
+  #   # build:
+  #   #   dockerfile: Dockerfile
+  #   #   context: ./customer
+  #   image: thanhlam2k4/customer-micro:4.0
+  #   container_name: customer
+  #   ports:
+  #     - 8003:8003
+  #   volumes:  
+  #     - .:/app 
+  #     - /app/customer/node_modules
+  #   depends_on:
+  #   - "mysql_server"
+  #   networks:
+  #     - micro_net
 
-  shopping:
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: ./shopping
-    image: thanhlam2k4/shopping-micro:4.0
-    container_name: shopping
-    ports:
-      - "8002:8002"     
-    volumes:
-      - .:/app
-      - /app/shopping/node_modules
-    depends_on:
-    - "mysql_server"  
-    networks:
-    - micro_net  
+  # shopping:
+  #   # build:
+  #   #   dockerfile: Dockerfile
+  #   #   context: ./shopping
+  #   image: thanhlam2k4/shopping-micro:4.0
+  #   container_name: shopping
+  #   ports:
+  #     - "8002:8002"     
+  #   volumes:
+  #     - .:/app
+  #     - /app/shopping/node_modules
+  #   depends_on:
+  #   - "mysql_server"  
+  #   networks:
+  #   - micro_net  
 
   
   # phpmyadmin:
