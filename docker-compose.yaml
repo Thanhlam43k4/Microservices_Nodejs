@@ -32,7 +32,7 @@ services:
     # build:
     #   dockerfile: Dockerfile
     #   context: ./shopping
-    image: thanhlam2k4/shopping-micro:3.0
+    image: thanhlam2k4/shopping-micro:4.0
     container_name: shopping
     ports:
       - "8002:8002"     
