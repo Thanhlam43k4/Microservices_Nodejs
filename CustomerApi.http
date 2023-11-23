@@ -1,13 +1,7 @@
-GET http://localhost:8083/shopping-home
-Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhvbGV0ZXgiLCJpYXQiOjE3MDA0Njg2NDAsImV4cCI6MTcwMDQ2ODY3MH0.UJAK6atd41LxKOOWIQCnnSJdTSVQ2hzvlzf9l0fk_cg
+
 ###
 
-POST http://localhost:803/login
-Content-Type: application/json
 
-{
-    "username": "holetex"   
-}
 
 
 ### Customer API 

@@ -55,12 +55,19 @@ pipeline{
                 }
             }            
         }
+        stage('Prune docker data!!!'){
+            steps{
+                sh 'docker system prune -a --volumes -f'
+            }
+        }
         stage('Deploy to dev environment!!!'){
 
             steps{
                 // sh 'docker network create micro_net'
-                step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
-                // sh 'docker compose up -d'
+                sh 'docker network create micro_net'
+                
+                sh 'docker compose up -d'
+
 
                 sh 'docker ps'
             }
