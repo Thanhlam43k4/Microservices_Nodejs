@@ -16,7 +16,10 @@ services:
     networks:
       - micro_net
   product:
-    image: thanhlam2k4/product-micro:4.0
+    build: 
+      dockerfile: Dockerfile
+      context: ./product
+    # image: thanhlam2k4/product-micro:4.0
     container_name: product
     ports:
       - "8001:8001"    
@@ -29,10 +32,10 @@ services:
       - micro_net
 
   customer:
-    # build:docker 
-    #   dockerfile: Dockerfile
-    #   context: ./customer
-    image: thanhlam2k4/customer-micro:3.0
+    build:
+      dockerfile: Dockerfile
+      context: ./customer
+    # image: thanhlam2k4/customer-micro:3.0
     container_name: customer
     ports:
       - 8003:8003
@@ -45,10 +48,10 @@ services:
       - micro_net
 
   shopping:
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: ./shopping
-    image: thanhlam2k4/shopping-micro:4.0
+    build:
+      dockerfile: Dockerfile
+      context: ./shopping
+    # image: thanhlam2k4/shopping-micro:4.0
     container_name: shopping
     ports:
       - "8002:8002"     
