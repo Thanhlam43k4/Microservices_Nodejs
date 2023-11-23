@@ -48,25 +48,25 @@ services:
     ports: 
     - "3307:3306"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mysql-data:/var/lib/mysql
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - mysql-data:/var/lib/mysql
     networks:
       - micro_net
   
-  # phpmyadmin:
-  #   container_name: phpmyadmin
-  #   image: phpmyadmin:5.2.1
-  #   environment:
-  #   - PMA_HOST=mysql_server
-  #   - PMA_ARBITARY=1
-  #   ports:
-  #   - 8085:80 
-  #   networks:
-  #     - micro_net
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:5.2.1
+    environment:
+    - PMA_HOST=mysql_server
+    - PMA_ARBITARY=1
+    ports:
+    - 8085:80 
+    networks:
+      - micro_net
   
 networks:
   micro_net:
     external: true  
   
-volumes:
-  mysql-data:
+# volumes:
+#   mysql-data:

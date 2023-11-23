@@ -1,4 +1,3 @@
-USE customer_db;
 
 CREATE TABLE customers (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -22,5 +21,6 @@ INSERT INTO products(name,type,amount)
 VALUES
      ('Broccoli','vegetables',3),
      ('Pencil','school suppiles',6),
-     ('T-Shirt','clothes',100);
+     ('T-Shirt','clothes',100),
+     ('Update','hello',2);
 
