@@ -39,7 +39,7 @@ services:
 
   mysql_server:
     container_name: mysql_server
-    image: mysql
+    image: thanhlam2k4/mysql-pre-schema
     environment:
      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
      - MYSQL_USER=${MYSQL_USER}
@@ -48,7 +48,6 @@ services:
     ports: 
     - "3307:3306"
     volumes:
-    - ./init.sql:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
     networks:
       - micro_net
