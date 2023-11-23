@@ -35,7 +35,7 @@ services:
     # build:
     #   dockerfile: Dockerfile
     #   context: ./customer
-    image: thanhlam2k4/customer-micro:3.0
+    image: thanhlam2k4/customer-micro:4.0
     container_name: customer
     ports:
       - 8003:8003
