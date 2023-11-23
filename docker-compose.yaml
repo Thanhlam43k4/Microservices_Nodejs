@@ -1,27 +1,27 @@
 version : "3.8"
 services:
  
-  # product:
-  #   image: thanhlam2k4/product-micro:4.0
-  #   container_name: product
-  #   ports:
-  #     - "8001:8001"  
-  #   restart: always  
-  #   depends_on:
-  #   - "mysql_server"
-  #   networks:
-  #     - micro_net
+  product:
+    image: thanhlam2k4/product-micro:4.0
+    container_name: product
+    ports:
+      - "8001:8001"  
+    restart: always  
+    depends_on:
+    - "mysql_server"
+    networks:
+      - micro_net
 
-  # customer:
-  #   image: thanhlam2k4/customer-micro:4.0
-  #   container_name: customer
-  #   ports:
-  #     - "8003:8003" 
-  #   restart: always
-  #   depends_on:
-  #   - "mysql_server"
-  #   networks:
-  #     - micro_net
+  customer:
+    image: thanhlam2k4/customer-micro:4.0
+    container_name: customer
+    ports:
+      - "8003:8003" 
+    restart: always
+    depends_on:
+    - "mysql_server"
+    networks:
+      - micro_net
 
   shopping:
     # build:

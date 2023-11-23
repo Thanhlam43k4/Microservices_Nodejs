@@ -7,7 +7,7 @@ async function Create_connect()
 {
     const mysqlConfig= {
         host: "mysql_server",
-        port: 3306,
+        port: "3306",
         user: "root",
         password:"root",
         database:"customer_db"
