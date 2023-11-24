@@ -24,3 +24,4 @@ VALUES
      ('T-Shirt','clothes',100),
      ('Update','hello',2);
 
+

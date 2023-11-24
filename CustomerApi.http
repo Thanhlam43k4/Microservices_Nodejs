@@ -7,9 +7,9 @@
 ### Customer API 
 
 #Get Detail User
-GET http://localhost:8003/11
+GET http://192.168.56.105:8003/1
 
-###
+###192.168.56.105:8001/api/v1/data
 #Login
 
 POST http://localhost:8003/login
