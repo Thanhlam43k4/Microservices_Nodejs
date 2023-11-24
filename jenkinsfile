@@ -63,8 +63,15 @@ pipeline{
         stage('Deploy to dev environment!!!'){
 
             steps{
+                    def networkName = 'micro_net'
+                    def networkExists = sh(script: "docker network ls --filter name=${networkName} --format '{{.Name}}'", returnStatus: true) == 0
+                    if (!networkExists) {
+                        echo "Creating Docker network: ${networkName}"
+                        sh "docker network create ${networkName}"
+                    } else {
+                        echo "Docker network ${networkName} already exists."
+                    }
                 // sh 'docker network create micro_net'
-                sh 'docker network create micro_net'
                 
                 sh 'docker compose up -d'
 
