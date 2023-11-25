@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-micro-dp
+  namespace: micro-dev
+spec:
+  selector:
+    matchLabels:
+      app: product-micro-dp
+  template:
+    metadata:
+      labels:
+        app: product-micro-dp
+    spec:
+      containers:
+      - name: product-micro-dp
+        image: thanhlam2k4/product-micro-prod:4.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8001
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-micro-svc
+  namespace: micro-dev
+spec:
+  selector:
+    app: product-micro-dp
+  ports:
+  - port: 80
+    targetPort: 8001
+  type: LoadBalancer

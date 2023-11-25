@@ -1,13 +1,12 @@
 import mysql from 'mysql2';
 let con = null
 //Config Mysql
-
-
+import * as dotenv from 'dotenv'
+dotenv.config()
 async function Create_connect()
 {
     const mysqlConfig= {
-        host: "mysql_server",
-        port: "3306",
+        host: "mysql-micro-svc", //for product
         user: "root",
         password:"root",
         database:"customer_db"
