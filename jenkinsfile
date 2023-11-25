@@ -67,10 +67,21 @@ pipeline{
                 sh 'docker network create micro_net || echo "this network exist"'
                 
 
+                sh 'docker compose up mysql_server -d'
+
                 sh 'docker compose up -d'
 
-
                 sh 'docker ps'
+            }
+        }
+        stage('Testing Dev development!!!!'){
+            steps{
+               //Test Product service
+               
+                sh 'curl 192.168.56.105:8001/api/v1/data'
+               
+                sh 'docker compose down'
+               //
             }
         }
     }
