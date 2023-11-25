@@ -84,5 +84,10 @@ pipeline{
                //
             }
         }
+        stage('Deploy to product environment'){
+            steps{
+                
+            }
+        }
     }
 }   
