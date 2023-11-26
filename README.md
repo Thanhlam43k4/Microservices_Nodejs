@@ -33,3 +33,6 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 **=> You can check details in Jenkinsfile.**
 
 ### Kubernetes Cluster
+
+Configuration
+<img align = "center" alt = "coding" width = "500" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnTcCWK-R1sabTY32XsS_d19MjnkIDI_ZUcJSL7rdn07iK5tUK5XILGo6Sc_bobKiTDDc4EYlgIUTxdZoxl8oJky3U2DnR-Sxom-jY5q_5g9ww0YNK3cB_vHt610BH5FFh2uQ5M_0MXz8KVLPsBzVzLIPBaU36LZyYZj1D6nTT2CWvWArtNYdr-GAAk-sO/s1471/K8S.png">
