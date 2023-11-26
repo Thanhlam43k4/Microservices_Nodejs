@@ -49,7 +49,18 @@ services:
     - "3307:3306"
     networks:
       - micro_net
-  
+  nginx-proxy:
+    build:
+      dockerfile: Dockerfile
+      context: ./proxy
+    depends_on:
+      - product
+      - shopping
+      - customer
+    ports:
+      - 80:80
+    networks:
+      - micro_net   
 networks:
   micro_net:
     external: true  

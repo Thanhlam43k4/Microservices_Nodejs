@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-micro-dp
+  namespace: micro-dev
+spec:
+  selector:
+    matchLabels:
+      app: customer-micro-dp
+  template:
+    metadata:
+      labels:
+        app: customer-micro-dp
+    spec:
+      containers:
+      - name: customer-micro-dp
+        image: thanhlam2k4/customer-micro-prod:1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8002
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-micro-svc
+  namespace: micro-dev
+spec:
+  selector:
+    app: customer-micro-dps
+  ports:
+  - port: 80
+    targetPort: 8003
+  type: LoadBalancer

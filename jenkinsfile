@@ -78,7 +78,7 @@ pipeline{
             steps{
                //Test Product service
                
-                sh 'curl 192.168.56.105:8001/api/v1/data'
+                sh 'curl 192.168.56.105/api/v1/data'
                
                 sh 'docker compose down'
                //

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-micro-dp
+  namespace: micro-dev
+spec:
+  selector:
+    matchLabels:
+      app: shopping-micro-dp
+  template:
+    metadata:
+      labels:
+        app: shopping-micro-dp
+    spec:
+      containers:
+      - name: shopping-micro-dp
+        image: thanhlam2k4/shopping-micro-prod:1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8002
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopping-micro-svc
+  namespace: micro-dev
+spec:
+  selector:
+    app: shopping-micro-dp
+  ports:
+  - port: 80
+    targetPort: 8002
+  type: LoadBalancer

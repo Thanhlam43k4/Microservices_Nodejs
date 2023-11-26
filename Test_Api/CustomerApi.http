@@ -16,7 +16,7 @@ POST http://localhost:8003/login
 Content-Type: application/json
 
 {
-    "email": "lamcoivodoi123@gmail.com",
+    "email": "huyentrang@gmail.com",
     "password": "lamcoivodoi123"
 }
 
@@ -29,6 +29,16 @@ Content-Type: application/json
 {
     "username": "huyengtrang",
     "email": "lamcoivodoi123@gmail.com",
+    "password": "lamcoivodoi123"
+}
+
+###
+POST http://localhost/customer/signup
+Content-Type: application/json
+
+{
+    "username": "thanhlam",
+    "email": "huyentrang@gmail.com",
     "password": "lamcoivodoi123"
 }
 
