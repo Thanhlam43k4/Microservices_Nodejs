@@ -30,4 +30,5 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 ### Jenkins pipeline
 <img align = "center" alt = "coding" width = "600" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5MvqlIvimB-_uW-Igb3D1T1JqAt4rCxc2WsC4dgL65AhweY4kUw6p1yavfgbsrM7WQi2thcs0RtwGtc1t5sb5ZSvKTDt7Wj5ymDvzqrmVPeym1va-WmWSqjITgNmYs98oMs7nQ-i0a2EGJ-TuMwgA6KTdkNNCYoFvu0Gn0fvJYXW1E_hjrbg0JVcH_2o1/s1900/stage_jenkins.png">
 
+**=> You can check details in Jenkinsfile.**
 
