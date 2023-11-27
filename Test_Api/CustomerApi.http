@@ -37,14 +37,21 @@ POST http://localhost/customer/signup
 Content-Type: application/json
 
 {
-    "username": "thanhlam",
-    "email": "huyentrang@gmail.com",
+    "username": "kedat",
+    "email": "kedat@gmail.com",
     "password": "lamcoivodoi123"
 }
 
 ###
 #Update Infor Customer
-POST http://localhost:8003/9/add-info
+POST http://localhost:8003/1
+Content-Type: application/json
+{
+    "address" : "Thi Tran Binh My",
+    "phoneNumber" : "0973688222"
+}
+###
+POST http://localhost/customer/1
 Content-Type: application/json
 
 {
@@ -52,3 +59,5 @@ Content-Type: application/json
     "phoneNumber" : "0973688222"
 }
 
+###
+GET http://localhost:8003/

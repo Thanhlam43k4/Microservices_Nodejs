@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: shopping-micro-dp
-        image: thanhlam2k4/shopping-micro-prod:1.0
+        image: thanhlam2k4/shopping-micro-prod:2.0
         resources:
           limits:
             memory: "128Mi"

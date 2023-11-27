@@ -2,6 +2,7 @@ pipeline{
     agent any;
     environment{
         REPO_URL = 'https://github.com/Thanhlam43k4/Microservices_Nodejs.git'
+
         SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
         SONAR_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
@@ -19,24 +20,24 @@ pipeline{
                 echo 'Pulling successfully................'
             }
         }
-        // stage('Sonar Analysis'){
-        //     steps{
-        //         withEnv(["PATH+SONAR_SCANNER=${tool name: 'sonarscanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin"]) {
-        //         withSonarQubeEnv('sonarserver') {
-        //               sh 'sonar-scanner \
-        //                 -Dsonar.projectKey=jenkins-check-stage \
-        //                 -Dsonar.sources=. \
-        //                 -Dsonar.host.url=http://192.168.56.105:9000 \
-        //                 -Dsonar.login=sqp_0cd2459d203a734bfc169c0c11b85a444947aee4'
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Sonar Analysis'){
+            steps{
+                withEnv(["PATH+SONAR_SCANNER=${tool name: 'sonarscanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin"]) {
+                withSonarQubeEnv('sonarserver') {
+                      sh 'sonar-scanner \
+                        -Dsonar.projectKey=Check_Sonar_Code \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://192.168.56.105:9000 \
+                        -Dsonar.login=squ_ca2315966522b8e0d5a486dbd7d21d78abca4c77'
+                    }
+                }
+            }
+        }
         stage('Build Docker image and push to DockerHub'){
             steps{
                 echo 'Build docker Image in file Dockerfile' //File Dockerfile in the dir of source code
                 //Docker command
-
+                echo 'Build Docker Image'
                 sh 'docker build -t thanhlam2k4/customer-micro:4.0 ./customer' //In my case thanhlam2k4 is my dockerhub account you can change!!!
                 //You can run docker image anh check your images in your local machine
                 sh 'docker build -t thanhlam2k4/shopping-micro:4.0 ./shopping' 
@@ -55,15 +56,18 @@ pipeline{
                 }
             }            
         }
-        stage('Prune docker data!!!'){
+        stage('Prune docker data'){
             steps{
+                echo 'Prune data in docker!!!'
                 sh 'docker system prune -a --volumes -f'
             }
         }
-        stage('Deploy to dev environment!!!'){
+        stage('Deploy to dev environment'){
 
             steps{
-                   
+                echo 'Deploy to dev environment'
+                // sh 'fuser -k 80/tcp'
+                
                 sh 'docker network create micro_net || echo "this network exist"'
                 
 
@@ -74,19 +78,30 @@ pipeline{
                 sh 'docker ps'
             }
         }
-        stage('Testing Dev development!!!!'){
+        stage('Testing Dev development'){
             steps{
                //Test Product service
-               
+                echo 'Testing dev development...'
+
                 sh 'curl 192.168.56.105/api/v1/data'
                
                 sh 'docker compose down'
                //
             }
         }
-        stage('Deploy to product environment'){
+        stage('Deploy to production environment'){
             steps{
-                
+                echo 'Deploying to Kubernetes cluster'
+                script{
+                    kubernetesDeploy (configs: 'K8S/mysql.yaml', kubeconfigId: 'kubernetes') //Deploy mysql-micro-dp on k8s with port 3306
+                    
+                    kubernetesDeploy (configs: 'K8S/product.yaml', kubeconfigId: 'kubernetes') //Deploy product-micro-dp on k8s with port 8001
+                    
+                    kubernetesDeploy (configs: 'K8S/shopping.yaml', kubeconfigId: 'kubernetes') //Deploy shopping-micro-dp on k8s with port 8002
+
+                    kubernetesDeploy (configs: 'K8S/customer.yaml', kubeconfigId: 'kubernetes') //Deploy customer-micro-dp on k8s with port 8003
+
+                }
             }
         }
     }

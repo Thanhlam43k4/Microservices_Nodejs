@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: customer-micro-dp
-        image: thanhlam2k4/customer-micro-prod:1.0
+        image: thanhlam2k4/customer-micro-prod:3.0
         resources:
           limits:
             memory: "128Mi"
@@ -31,7 +31,7 @@ metadata:
   namespace: micro-dev
 spec:
   selector:
-    app: customer-micro-dps
+    app: customer-micro-dp
   ports:
   - port: 80
     targetPort: 8003
