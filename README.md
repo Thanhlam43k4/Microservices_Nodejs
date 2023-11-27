@@ -6,12 +6,14 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 
 <img align = "center" alt = "coding" width = "800" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaR-oiDHczwaEb3YbmvccT4dH6y5hXAI2BAOC9oxINdTWBosSZ9HiSmrQ3E4H_ZWNiIVnRvIokqCxvTzkcelz0JJGmO_IjUiX8TBQc8kSPR58YXqIgRiwHNS7LldQjfyomINi__qZLCxBgJoj_3WdLax5wVM6SuMlRW5igKt59Idza3p0haJ1mpiGMFyOa/s1257/microservice_structure.png"> 
 
-*** Tech Stack:
+**Tech Stack**:
 - Nodejs, Express for Backend API.
 - Mysql for Database.
 - Nginx for reverse proxy.
 - Jenkins for CI-CD pipeline.
 - Kubernetes cluster for prod development.
+-SonarQube for quality Codes and Code Smell.
+
 
 ### Structure of Microservices
 -Customer_service: Run on port 8003 for function(login,signup,getAllUser,getUserbyId,UpdatedId) .
@@ -30,7 +32,12 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 ### Jenkins pipeline
 <img align = "center" alt = "coding" width = "600" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibKvgYf7pQlbyHtSVa0iH6SE1DjOsOqJyRWNl_yTIENVtMzmyR6_S23cvxdpoJFQKWd5tOBL-kmWe8Sxy7nZDofka8G_mHU3PBM5lwClx035d4ph6y28-CNSRO4HkLrZur51utqm799I0GbEBhX0KiNCqg5CtolvDc2zeW-S-FoR-g0eTsCgNa_PwKR-It/s1897/updated_jenkins.png">
 
+
+<img align = "center" alt = "coding" width = "500" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsIfCfIoaFUxWDIVuY6PxZzDaBNScRRuubSbhOcM-oDudog50j8Szo9vA8PWaAMW0S2QJmKkYzwgPvozUoQ4AwaIkuL8_zVE1-idw70Hzq78TOttD0PVeLYhQA8O3To5VpceBJyrzBATPzacRO8m856Cq1B4Na3U9RiTkW6-ooDkoBrGSHo-oYPZ641FBv/s1852/code_sonar.pnghttps://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsIfCfIoaFUxWDIVuY6PxZzDaBNScRRuubSbhOcM-oDudog50j8Szo9vA8PWaAMW0S2QJmKkYzwgPvozUoQ4AwaIkuL8_zVE1-idw70Hzq78TOttD0PVeLYhQA8O3To5VpceBJyrzBATPzacRO8m856Cq1B4Na3U9RiTkW6-ooDkoBrGSHo-oYPZ641FBv/s1852/code_sonar.png">
+
 **=> You can check details in Jenkinsfile.**
+
+
 
 ### Production1(Kubernetes Cluster)
 
