@@ -12,7 +12,7 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 - Nginx for reverse proxy.
 - Jenkins for CI-CD pipeline.
 - Kubernetes cluster for prod development.
--SonarQube for quality Codes and Code Smell.
+- SonarQube for quality Codes and Code Smell.
 
 
 ### Structure of Microservices
