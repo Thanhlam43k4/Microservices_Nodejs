@@ -24,6 +24,9 @@ spec:
             value: ${MYSQL_USER}
           - name: MYSQL_PASSWORD
             value: ${MYSQL_PASSWORD}
+        volumeMounts:
+          - name: mysql-data
+            mountPath: var/lib/mysql   
         resources:
           limits:
             memory: "582Mi"
@@ -45,3 +48,7 @@ spec:
   - port: 3306
   type: LoadBalancer
 
+volumes:
+  - name: mysql-data
+    persistentVolumeClaim:
+      claimName: 
