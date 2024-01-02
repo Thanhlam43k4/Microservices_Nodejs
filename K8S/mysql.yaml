@@ -48,7 +48,7 @@ spec:
   - port: 3306
   type: LoadBalancer
 
-volumes:
-  - name: mysql-data
-    persistentVolumeClaim:
-      claimName: 
+# volumes:
+#   - name: mysql-data
+#     persistentVolumeClaim:
+#       claimName: 
