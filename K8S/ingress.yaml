@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  namespace: micro-dev
+  labels:
+    name: myingress
+  annotations:
+    spec.ingressClassName: nginx
+spec:
+  rules:
+  - host: demo.localdev.me
+    http:
+      paths: 
+        - pathType: Prefix
+          path: "/customer"
+          backend:
+           service:
+            name: customer-micro-svc
+            port: 
+              number: 80
+        - pathType: Prefix
+          path: "/product"
+          backend:
+            service:
+              name: product-micro-svc
+              port: 
+                number: 80
+        - pathType: Prefix
+          path: "/shopping"
+          backend:
+            service:
+              name: shopping-micro-svc
+              port: 
+                number: 80
