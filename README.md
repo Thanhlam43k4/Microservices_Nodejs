@@ -46,3 +46,5 @@ Configuration.
 <img align = "center" alt = "coding" width = "500" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnTcCWK-R1sabTY32XsS_d19MjnkIDI_ZUcJSL7rdn07iK5tUK5XILGo6Sc_bobKiTDDc4EYlgIUTxdZoxl8oJky3U2DnR-Sxom-jY5q_5g9ww0YNK3cB_vHt610BH5FFh2uQ5M_0MXz8KVLPsBzVzLIPBaU36LZyYZj1D6nTT2CWvWArtNYdr-GAAk-sO/s1471/K8S.png">
 
 Set Up Ingress Controller for 3 Service.(NGINX INGRESS CONTROLLER)
+
+<img align = "center" alt = "coding" width = "500" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj05lh77R5WII4YTPQGJ7w-B0IrW5Prk1KSP_GiR9LNnS-SlmT-c-emfvaftg8YCNurJT5nLn-VZY8fnCKQaBc3hVO9uhiix8Y2Ttx-j4R1olDKVuGMyrkIswKyA0dQPRQ6JeRKW4eKwMsFsFvxJPgJsoEoZt8XtC4ZqI-XSqJhhsW0-oyVE4-yuDsxngRh/s972/Nginx-Ingress-controller.png">
