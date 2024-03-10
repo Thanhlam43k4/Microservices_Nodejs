@@ -3,9 +3,9 @@ POST http://localhost:8001/add-products
 Content-Type: application/json
 
 {
-    "name": "Broccoli",
-    "type":  "Vegetables",
-    "amount": 10000
+    "name": "Beef",
+    "type":  "Products",
+    "amount": 1000000
 }
 
 ###

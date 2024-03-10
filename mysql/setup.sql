@@ -26,10 +26,3 @@ VALUES
      ('Pencil','school suppiles',6),
      ('T-Shirt','clothes',100),
      ('Update','hello',2);
-
-INSERT INTO customers(username,email,password)
-
-VALUES 
-    ('thanhlam','lamcoivodoi123@gmail.com','lamcoivodoi123'),
-    ('huyentrang','huyentrang0403@gmail.com','Nguoidien0212'),
-    ('Helloworld','Hellowolrd@gmail.com','lamcoivodoi123');

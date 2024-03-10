@@ -6,8 +6,8 @@ let con = null
 async function Create_connect()
 {
     const mysqlConfig= {
-        host: "mysql_server",
-        port: "3306",
+        host: "mysql_server", //dockerfile "mysql_server"
+        // port: "3306",
         user: "root",
         password:"root",
         database:"customer_db"

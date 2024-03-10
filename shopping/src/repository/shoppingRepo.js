@@ -3,7 +3,7 @@ import { con } from '../database/database.js'
 dotenv.config()
 import axios from 'axios'
 async function getProduct(productId){
-    const productAPIUrl = `http://product:8001/${productId}`;
+    const productAPIUrl = `http://localhost:8001/${productId}`;
     // console.log(productId);
     try{
         const response = await axios.get(productAPIUrl);
@@ -14,7 +14,7 @@ async function getProduct(productId){
     }
 }
 async function fetchProductDetails(productId) {
-    const productAPIUrl = `http://product:8001/${productId}`;
+    const productAPIUrl = `http://localhost:8001/${productId}`;
     try {
         const response = await axios.get(productAPIUrl);
         const productDetails = response.data.results; // Access the 'results' property

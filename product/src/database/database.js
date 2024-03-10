@@ -6,7 +6,7 @@ dotenv.config()
 async function Create_connect()
 {
     const mysqlConfig= {
-        host: "mysql-micro-svc", //for product
+        host: "mysql_server", //for product mysql_server
         user: "root",
         password:"root",
         database:"customer_db"

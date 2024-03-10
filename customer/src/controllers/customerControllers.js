@@ -44,7 +44,8 @@ async function signup(req, res) {
                 throw new Error('Internal Server Error');
             }
             if (results.length > 0) {
-                res.json({ msg: 'Customer has already existed!!!' })
+                console.log('User is already exist')
+                res.json({msg: 'User is already existed'})
             } else {
                 res.json({ msg: 'Add user Successfully!!!' })
                 customerRepository.signup({ username, email, password })
@@ -83,7 +84,7 @@ async function login(req, res) {
                 console.log('Login successfully');
                 return customerRepository.fetchAllProducts();
             } else {
-                console.log('Password does not match!');
+                throw new Error('Password does not match');
             }
         })
         .then((data) => {

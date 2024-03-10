@@ -22,10 +22,10 @@ async function AddProduct(req,res){
                 throw new Error('Internal Server Error');
             }
             if (results.length > 0) {
-                res.json({ msg: 'Products has already existed!!!' })
+                res.json({ msg: 'Product has already existed!!!' })
             }else{
-                res.json({msg: 'Add products Successfully!!!'})
                 productRepository.AddProduct({name,type,amount})
+                res.json({msg: "Add product successfully!!!"})
             }
         })    
 
@@ -36,8 +36,9 @@ async function viewDetails(req,res){
         con.query('SELECT * FROM products WHERE id = ?',
         [productId],
         function (err, results) {
-            res.json({results});
+            res.status(200).json({results});
             console.log(results);
+            console.log('Get One Product!!');
         })
     }catch(err){
         console.log('Error during viewing Products: ',err);
