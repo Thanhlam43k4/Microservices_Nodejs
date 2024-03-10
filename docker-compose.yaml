@@ -1,66 +1,45 @@
-version : "3.8"
+version : '3'
 services:
- 
-  product:
-    image: thanhlam2k4/product-micro:4.0
-    container_name: product
+  mysql_server:
+    container_name: mysql_server
+    image: thanhlam2k4/microservice-mysql
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_USER=thanhlam2k4
+     - MYSQL_PASSWORD=room
+     - MYSQL_DATABASE=customer_db
+    networks:
+     - micro-dev-net
+  front_end:
+    container_name: front_end
+    image: thanhlam2k4/microservice-fe
     ports:
-      - "8001:8001"  
-    restart: always  
+    - "3000:3000"
+    restart: always
     depends_on:
     - "mysql_server"
     networks:
-      - micro_net
-
+      - micro-dev-net
   customer:
-    image: thanhlam2k4/customer-micro:4.0
     container_name: customer
+    image: thanhlam2k4/microservice-customer
     ports:
       - "8003:8003" 
     restart: always
     depends_on:
     - "mysql_server"
     networks:
-      - micro_net
-
-  shopping:
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: ./shopping
-    image: thanhlam2k4/shopping-micro:4.0
-    container_name: shopping
+      - micro-dev-net
+  product:
+    container_name: product
+    image: thanhlam2k4/microservice-product
     ports:
-     - "8002:8002"  
-    restart: always   
+      - "8001:8001" 
+    restart: always
     depends_on:
-    - "mysql_server"  
+    - "mysql_server"
     networks:
-    - micro_net  
-
-  mysql_server:
-    container_name: mysql_server
-    image: thanhlam2k4/mysql-pre-schema
-    environment:
-     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-     - MYSQL_USER=${MYSQL_USER}
-     - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-     - MYSQL_DATABASE=customer_db
-    ports: 
-    - "3307:3306"
-    networks:
-      - micro_net
-  nginx-proxy:
-    build:
-      dockerfile: Dockerfile
-      context: ./proxy
-    depends_on:
-      - product
-      - shopping
-      - customer
-    ports:
-      - 80:80
-    networks:
-      - micro_net   
+      - micro-dev-net
 networks:
-  micro_net:
+  micro-dev-net:
     external: true  
