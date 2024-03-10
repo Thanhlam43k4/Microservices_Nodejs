@@ -39,7 +39,7 @@ app.get('/addproduct',(req,res) =>{
 // Handle login form submission
 app.post('/login', async (req, res) => {
   try {
-    const response = await axios.post('http://localhost:8003/login', req.body);//dockerfile http://customer:8003/login
+    const response = await axios.post('http://customer:8003/login', req.body);//dockerfile http://customer:8003/login
     // Check if the response contains a success message
     // if (response.data.success) {
       // If login is successful, render the product view page
@@ -74,7 +74,7 @@ app.get('/logout', (req, res) => {
 // Handle signup form submission
 app.post('/signup', async (req, res) => {
   try {
-    const response = await axios.post('http://localhost:8003/signup', req.body);//dockerfile http://customer:8003/login
+    const response = await axios.post('http://customer:8003/signup', req.body);//dockerfile http://customer:8003/login
     res.redirect('/login');
     if(response.data.msg == "User is already existed"){
       res.redirect('/login?error=Email is already exist');
@@ -96,7 +96,7 @@ app.get('/view/:id', async (req, res) => {
     const productId = req.params.id;
     console.log(productId);
     // Fetch product details from your backend API
-    const response = await axios.get('http://localhost:8001/${productId}');//dockerfile http://product:8001/
+    const response = await axios.get('http://product:8001/${productId}');//dockerfile http://product:8001/
     
     const product = await response.data;
     // console.log('Product:' + product);
@@ -113,7 +113,7 @@ app.post('/addproduct', async (req, res) => {
 
   try {
       // Make a POST request to your backend API
-      const response = await axios.post('http://localhost:8001/add-products', {//dockerfile http://product:8001/add-products
+      const response = await axios.post('http://product:8001/add-products', {//dockerfile http://product:8001/add-products
           name: name,
           type: type,
           amount: amount
@@ -134,5 +134,5 @@ app.post('/addproduct', async (req, res) => {
   }
 });
 app.listen(port, () => {
-  console.log(`Frontend server listening at http://localhost:${port}`);
+  console.log(`Frontend server listening at http://Localhost:${port}`);
 });

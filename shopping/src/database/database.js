@@ -6,8 +6,7 @@ let con = null
 async function Create_connect()
 {
     const mysqlConfig= {
-        host: "localhost",
-        port: "3306",
+        host: "mysql_server",
         user: "root",
         password:"root",
         database:"customer_db"
