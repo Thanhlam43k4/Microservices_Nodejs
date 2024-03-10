@@ -42,6 +42,7 @@ pipeline {
         stage('Prune docker data') {
             steps {
                 echo 'Prune data in docker!!!'
+
                 sh 'docker system prune -a --volumes -f'
             }
         }
@@ -49,7 +50,8 @@ pipeline {
             steps {
                 echo 'Deploy to dev environment.....'
                 // sh 'fuser -k 80/tcp'
-
+                sh 'docker stop $(docker ps -a)'
+                
                 sh 'docker network create micro-dev-net || echo "this network exist"'
 
                 sh 'docker compose up mysql_server -d'
@@ -62,6 +64,7 @@ pipeline {
         stage('Testing Dev development') {
             steps {
                 //Test Product service
+                sh 'sleep 10'
                 echo 'Testing dev development...'
 
                 sh 'curl 192.168.56.105:3000'
