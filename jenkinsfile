@@ -79,12 +79,7 @@ pipeline {
         }
         stage('Deploy to Staging'){
             steps{
-                sshagent(credentialsId: ['ssh-key-staging']){
-                    sh '''
-                        ssh -i ssh-key-staging thanhlam@192.168.56.110 
-                        "echo 'Hello world' > deploy.sh && chmod +x deploy.sh && ./deploy.sh"
-                    '''
-                }
+                   echo 'Deploy to Staging Environment'
             }
         }
         // post {
