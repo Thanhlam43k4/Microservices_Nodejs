@@ -40,6 +40,15 @@ services:
     - "mysql_server"
     networks:
       - micro-dev-net
+  nginx:
+    container_name: nginx
+    build:
+      context: ./proxy
+    ports:
+    - "80:80"
+    networks:
+      - micro-dev-net
+
 networks:
   micro-dev-net:
     external: true  
