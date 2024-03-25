@@ -58,7 +58,8 @@ pipeline {
                 echo 'Deploy to dev environment.....'
                 // sh 'fuser -k 80/tcp'
                 // sh 'docker stop $(docker ps -a)'
-                sh 'kill -9 $(lsof -i tcp:80)'
+                // sh 'kill -9 $(lsof -i tcp:80)'
+
                 sh 'docker network create micro-dev-net || echo "this network exist"'
 
                 sh 'docker compose up mysql_server -d'
