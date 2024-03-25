@@ -7,6 +7,9 @@ pipeline {
         FE_IMAGE_ID = 'thanhlam2k4/microservice-fe'
         CUSTOMER_IMAGE_ID = 'thanhlam2k4/microservice-customer'
         SHOPPING_IMAGE_ID = 'thanhlam2k4/microservice-shopping'
+        PRODUCT_IMAGE_ID = 'thanhlam2k4/microservice-product'
+        DOCKER_NETWORK_NAME = 'micro-dev-net'
+        MYSQL_SERVICE_DEV = 'mysql-server'
     }
     stages {
         stage('Pulling source code') {
@@ -26,22 +29,24 @@ pipeline {
 
                 sh 'docker build -t ${FE_IMAGE_ID} ./frontend'
 
-                sh 'docker build -t thanhlam2k4/microservice-customer ./customer'
+                sh 'docker build -t ${CUSTOMER_IMAGE_ID} ./customer'
                 // //You can run docker image anh check your images in your local machine
 
-                sh 'docker build -t thanhlam2k4/microservice-shopping ./shopping'
+                sh 'docker build -t ${SHOPPING_IMAGE_ID} ./shopping'
 
-                sh 'docker build -t thanhlam2k4/microservice-product ./product'
+                sh 'docker build -t ${PRODUCT_IMAGE_ID} ./product'
 
                 sh 'docker images'
                 withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://index.docker.io/v1/') {
                     echo 'Push to Dockerhub with dockerhub account thanhlam2k4'
                     
-                    sh 'docker push thanhlam2k4/microservice-customer'
+                    sh 'docker push ${CUSTOMER_IMAGE_ID}'
 
-                    sh 'docker push thanhlam2k4/microservice-shopping'
+                    sh 'docker push ${SHOPPING_IMAGE_ID}'
 
-                    sh 'docker push thanhlam2k4/microservice-product'
+                    sh 'docker push ${PRODUCT_IMAGE_ID}'
+
+                    sh 'docker push ${FE_IMAGE_ID}'
                     
                 }
             }
@@ -60,9 +65,9 @@ pipeline {
                 // sh 'docker stop $(docker ps -a)'
                 // sh 'kill -9 $(lsof -i tcp:80)'
 
-                sh 'docker network create micro-dev-net || echo "this network exist"'
+                sh 'docker network create ${DOCKER_NETWORK_NAME} || echo "this network exist"'
 
-                sh 'docker compose up mysql_server -d'
+                sh 'docker compose up ${MYSQL_SERVICE_DEV} -d'
 
                 sh 'docker compose up -d'
 
@@ -73,11 +78,12 @@ pipeline {
             steps {
                 //Test Product service
                 sh 'sleep 10'
+
                 echo 'Testing dev development...'
 
                 sh 'curl 192.168.56.105:3000'
 
-                sh 'docker compose down'
+                // sh 'docker compose down'
             //
             }
         }
