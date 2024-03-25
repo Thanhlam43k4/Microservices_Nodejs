@@ -4,6 +4,9 @@ pipeline {
     agent any
     environment {
         REPO_URL = 'https://github.com/Thanhlam43k4/Microservices_Nodejs.git'
+        FE_IMAGE_ID = 'thanhlam2k4/microservice-fe'
+        CUSTOMER_IMAGE_ID = 'thanhlam2k4/microservice-customer'
+        SHOPPING_IMAGE_ID = 'thanhlam2k4/microservice-shopping'
     }
     stages {
         stage('Pulling source code') {
@@ -21,7 +24,7 @@ pipeline {
                 //Docker command
                 echo 'Build Docker Image'
 
-                sh 'docker build -t thanhlam2k4/microservice-fe ./frontend'
+                sh 'docker build -t ${FE_IMAGE_ID} ./frontend'
 
                 sh 'docker build -t thanhlam2k4/microservice-customer ./customer'
                 // //You can run docker image anh check your images in your local machine
@@ -55,7 +58,7 @@ pipeline {
                 echo 'Deploy to dev environment.....'
                 // sh 'fuser -k 80/tcp'
                 // sh 'docker stop $(docker ps -a)'
-
+                sh 'kill -9 $(lsof -i tcp:80)'
                 sh 'docker network create micro-dev-net || echo "this network exist"'
 
                 sh 'docker compose up mysql_server -d'
