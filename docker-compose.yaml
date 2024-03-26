@@ -44,6 +44,9 @@ services:
     container_name: nginx
     build:
       context: ./proxy
+    depends_on:
+    - "mysql_server"
+    - "front_end"
     ports:
     - "80:80"
     networks:

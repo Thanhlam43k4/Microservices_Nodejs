@@ -13,6 +13,7 @@ pipeline {
         JENKINS_DOCKERHUB_CREDENTIALS = 'dockerhub_id'
 
         DEV_IP_ADDRESS = '192.168.56.105'
+        STAGING_IP_ADDRESS = '192.168.56.110'
     }
     stages {
         stage('Pulling source code') {
@@ -93,11 +94,30 @@ pipeline {
         }
         stage('Deploy to Staging'){
             steps{
-                   echo 'Deploy to Staging Environment'
+                    echo 'Deploy to Staging Environment'
+                    script{
+                         def deploying = "#!/bin/bash\n"+
+                         "\necho 'lamcoivodoi123' | sudo -S  docker ps" + 
+                         "\ngit clone ${REPO_URL}" +
+                         "\necho 'lamcoivodoi123' | sudo docker network create ${DOCKER_NETWORK_NAME}" + 
+                         "\ncd Microservices_Nodejs && echo 'lamcoivodoi123' | sudo docker-compose up -d"
+                         
+                        
+                        sshagent(['jenkins-ssh-key']) {
+                         // some block
+                            sh """
+                                ssh -o StrictHostKeyChecking=no -i jenkins-ssh-key thanhlam@192.168.56.110 "echo \\\"${deploying}\\\" > deploy.sh && chmod 777 deploy.sh && ./deploy.sh"
+                               """
+                        }
+                    }
+            }
+        }
+        stage('Testing Staging Environment')
+        {
+            steps{
+                echo 'Testing Staging environment .....'
 
-                    sshagent(credentials: ['ssh-staging-machine']) {
-                        sh 'ssh thanhlam@192.168.56.110 "docker-compose -f /path/to/docker-compose.yml up -d"'
-                    }    
+                sh 'curl ${STAGING_IP_ADDRESS}:3000'
             }
         }
         // post {
