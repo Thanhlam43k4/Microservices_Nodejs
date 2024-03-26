@@ -69,7 +69,6 @@ pipeline {
                 // sh 'fuser -k 80/tcp'
                 // sh 'docker stop $(docker ps -a)'
                 // sh 'kill -9 $(lsof -i tcp:80)'
-
                 sh 'docker network create ${DOCKER_NETWORK_NAME} || echo "this network exist"'
 
                 sh 'docker compose up ${MYSQL_SERVICE_DEV} -d'
@@ -79,7 +78,7 @@ pipeline {
                 sh 'docker ps'
             }
         }
-        stage('Testing Dev development') {
+        stage('Testing Dev development') {              //Need to update with Sonarqube 
             steps {
                 //Test Product service
                 sh 'sleep 10'
@@ -88,7 +87,7 @@ pipeline {
 
                 sh 'curl ${DEV_IP_ADDRESS}:3000'
 
-                // sh 'docker compose down'
+                sh 'docker compose down'
             //
             }
         }
@@ -101,8 +100,7 @@ pipeline {
                          "\ngit clone ${REPO_URL}" +
                          "\necho 'lamcoivodoi123' | sudo docker network create ${DOCKER_NETWORK_NAME}" + 
                          "\ncd Microservices_Nodejs && echo 'lamcoivodoi123' | sudo docker-compose up -d"
-                         
-                        
+
                         sshagent(['jenkins-ssh-key']) {
                          // some block
                             sh """
@@ -117,7 +115,10 @@ pipeline {
             steps{
                 echo 'Testing Staging environment .....'
 
+                sh 'sleep 5'
+
                 sh 'curl ${STAGING_IP_ADDRESS}:3000'
+
             }
         }
         // post {
