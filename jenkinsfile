@@ -99,7 +99,7 @@ pipeline {
                          "\necho 'lamcoivodoi123' | sudo -S  docker ps" + 
                          "\ngit clone ${REPO_URL}" +
                          "\necho 'lamcoivodoi123' | sudo docker network create ${DOCKER_NETWORK_NAME}" + 
-                         "\ncd Microservices_Nodejs && echo 'lamcoivodoi123' | sudo docker-compose up -d"
+                         "\ncd Microservices_Nodejs && echo 'lamcoivodoi123' | sudo docker-compose up ${MYSQL_SERVICE_DEV} -d && echo 'lamcoivodoi123' | sudo docker-compose up -d"
 
                         sshagent(['jenkins-ssh-key']) {
                          // some block
