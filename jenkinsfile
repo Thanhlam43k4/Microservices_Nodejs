@@ -10,6 +10,9 @@ pipeline {
         PRODUCT_IMAGE_ID = 'thanhlam2k4/microservice-product'
         DOCKER_NETWORK_NAME = 'micro-dev-net'
         MYSQL_SERVICE_DEV = 'mysql-server'
+        JENKINS_DOCKERHUB_CREDENTIALS = 'dockerhub_id'
+
+        DEV_IP_ADDRESS = '192.168.56.105'
     }
     stages {
         stage('Pulling source code') {
@@ -37,7 +40,8 @@ pipeline {
                 sh 'docker build -t ${PRODUCT_IMAGE_ID} ./product'
 
                 sh 'docker images'
-                withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: '${JENKINS_DOCKERHUB_CREDENTIALS}', url: 'https://index.docker.io/v1/') {
+
                     echo 'Push to Dockerhub with dockerhub account thanhlam2k4'
                     
                     sh 'docker push ${CUSTOMER_IMAGE_ID}'
@@ -81,7 +85,7 @@ pipeline {
 
                 echo 'Testing dev development...'
 
-                sh 'curl 192.168.56.105:3000'
+                sh 'curl ${DEV_IP_ADDRESS}:3000'
 
                 // sh 'docker compose down'
             //
