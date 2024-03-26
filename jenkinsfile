@@ -40,7 +40,7 @@ pipeline {
                 sh 'docker build -t ${PRODUCT_IMAGE_ID} ./product'
 
                 sh 'docker images'
-                withDockerRegistry(credentialsId: ${JENKINS_DOCKERHUB_CREDENTIALS}, url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: "${JENKINS_DOCKERHUB_CREDENTIALS}", url: 'https://index.docker.io/v1/') {
 
                     echo 'Push to Dockerhub Registry'
                     
