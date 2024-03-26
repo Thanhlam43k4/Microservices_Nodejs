@@ -117,7 +117,7 @@ pipeline {
 
                 sh 'sleep 5'
 
-                sh 'curl ${STAGING_IP_ADDRESS}:3000'
+                sh 'curl ${STAGING_IP_ADDRESS}'
 
             }
         }
