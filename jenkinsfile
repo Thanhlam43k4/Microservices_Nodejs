@@ -9,7 +9,7 @@ pipeline {
         SHOPPING_IMAGE_ID = 'thanhlam2k4/microservice-shopping'
         PRODUCT_IMAGE_ID = 'thanhlam2k4/microservice-product'
         DOCKER_NETWORK_NAME = 'micro-dev-net'
-        MYSQL_SERVICE_DEV = 'mysql-server'
+        MYSQL_SERVICE_DEV = 'mysql_server'
         JENKINS_DOCKERHUB_CREDENTIALS = 'dockerhub_id'
 
         DEV_IP_ADDRESS = '192.168.56.105'
@@ -42,7 +42,7 @@ pipeline {
                 sh 'docker images'
                 withDockerRegistry(credentialsId: '${JENKINS_DOCKERHUB_CREDENTIALS}', url: 'https://index.docker.io/v1/') {
 
-                    echo 'Push to Dockerhub with dockerhub account thanhlam2k4'
+                    echo 'Push to Dockerhub Registry'
                     
                     sh 'docker push ${CUSTOMER_IMAGE_ID}'
 
