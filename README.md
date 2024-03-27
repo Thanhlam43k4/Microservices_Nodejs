@@ -14,6 +14,10 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 - Kubernetes cluster for prod development.
 - SonarQube for quality Codes and Code Smell.
 
+### Infrastructure of Virtual Machine
+- Jenkins machine with IP 192.168.56.105(docker, jenkins image,docker compose,sonarqube)
+
+- Staging machine with IP 192.168.56.110(docker,docker compose)
 
 ### Structure of Microservices
 -Customer_service: Run on port 8003 for function(login,signup,getAllUser,getUserbyId,UpdatedId) .
@@ -38,8 +42,23 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 **=> You can check details in Jenkinsfile.**
 
 
+### Staging Environment
 
-### Production1 (Kubernetes Cluster)
+- Using SSH agent in Jenkins for ssh to staging machine and deploy application to this env
+
+
+
+
+
+
+
+
+
+
+
+
+->> Need to be up
+### Production1 (Kubernetes Cluster) 
 
 Configuration.
 
