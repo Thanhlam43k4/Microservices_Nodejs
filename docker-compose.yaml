@@ -18,6 +18,8 @@ services:
     restart: always
     depends_on:
     - "mysql_server"
+    - "customer"
+    - "product"
     networks:
       - micro-dev-net
   customer:
@@ -40,6 +42,7 @@ services:
     - "mysql_server"
     networks:
       - micro-dev-net
+      
   nginx:
     container_name: nginx
     build:
