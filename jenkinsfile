@@ -101,6 +101,7 @@ pipeline {
                     script{
                          def deploying = "#!/bin/bash\n"+
                          "\necho ${STAGING_SUDO_PWD} | sudo -S  docker ps" + 
+                         "\necho ${STAGING_SUDO_PWD} | sudo -S docker stop $(sudo docker ps)" +
                          "\ngit clone ${REPO_URL}" +
                          "\necho ${STAGING_SUDO_PWD} | sudo docker network create ${DOCKER_NETWORK_NAME}" + 
                          "\ncd ${PROJECT_DIRECTORY} && echo ${STAGING_SUDO_PWD} | sudo docker compose up ${MYSQL_SERVICE_DEV} -d && echo ${STAGING_SUDO_PWD} | sudo docker compose up -d"
@@ -125,6 +126,8 @@ pipeline {
 
                 sh 'curl ${STAGING_IP_ADDRESS}'
 
+
+                sh 'sleep 5'
             }
         }
         // post {
