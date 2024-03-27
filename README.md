@@ -34,7 +34,7 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 <img align = "center" alt = "coding" width = "600" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKIGniLJpUs0hLpEetCz_4dERZkbuhszCEiUvR0l9cY4oso908PHcQrbRKgctJP9HVxrtrmh5mOwy8T9m_5i_JhlaPEoTgoOAURDMcQTRZcAFxilK3IMqhtEkl1Kbb_I6j5oWxinbm7MA1O4rXt1UulRA254oYx0HtNXneC9qjYVEew59qWLoLv8_nwkg1/s748/nginx_conf.jpg.png">
 
 ### Jenkins pipeline
-<img align = "center" alt = "coding" width = "600" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibKvgYf7pQlbyHtSVa0iH6SE1DjOsOqJyRWNl_yTIENVtMzmyR6_S23cvxdpoJFQKWd5tOBL-kmWe8Sxy7nZDofka8G_mHU3PBM5lwClx035d4ph6y28-CNSRO4HkLrZur51utqm799I0GbEBhX0KiNCqg5CtolvDc2zeW-S-FoR-g0eTsCgNa_PwKR-It/s1897/updated_jenkins.png">
+<img align = "center" alt = "coding" width = "600" src = "https://blogger.googleusercontent.com/img/a/AVvXsEg4SyDEr_pRv-0u7uXi6FYYCRO1W4KAGzVUSGVkfVFi0OB_jHHmXneyQAT4MDDPMvf-dl4hdhgok3zMSj2j-WWbBbAptWp_9yziB8qCHCliLlxD6OIa_c54sjooiq9SV82uG1hskTVaT3SohD7UYi8AQoFIN20upOaVeKCdsC-0THuyrV1CUP6iG_xsvjHm">
 
 
 <img align = "center" alt = "coding" width = "500" src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsIfCfIoaFUxWDIVuY6PxZzDaBNScRRuubSbhOcM-oDudog50j8Szo9vA8PWaAMW0S2QJmKkYzwgPvozUoQ4AwaIkuL8_zVE1-idw70Hzq78TOttD0PVeLYhQA8O3To5VpceBJyrzBATPzacRO8m856Cq1B4Na3U9RiTkW6-ooDkoBrGSHo-oYPZ641FBv/s1852/code_sonar.png">
