@@ -57,7 +57,7 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 
 
 
-->> Need to be up
+->> Need to be update
 ### Production1 (Kubernetes Cluster) 
 
 Configuration.
