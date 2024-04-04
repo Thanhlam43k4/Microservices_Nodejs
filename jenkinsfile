@@ -2,6 +2,7 @@
 
 pipeline {
     agent any
+    
     environment {
         REPO_URL = 'https://github.com/Thanhlam43k4/Microservices_Nodejs.git'
         FE_IMAGE_ID = 'thanhlam2k4/microservice-fe'
@@ -17,14 +18,17 @@ pipeline {
         STAGING_USER ='thanhlam'
         JENKINS_SSH_KEY = 'jenkins-ssh-key'
         STAGING_SUDO_PWD = credentials('staging_sudo_pwd')
-
+        GITHUB_TOKENS = 'github-token'
     }
+
+
+
     stages {
         stage('Pulling source code') {
             steps {
                 echo 'Pulling code from GitHub............'
 
-                git branch: 'main', url: REPO_URL
+                git branch: 'main', credentialsId: "${GITHUB_TOKENS}", url: REPO_URL
 
                 echo 'Pulling successfully................'
             }
