@@ -1,8 +1,8 @@
 //Dev Pipeline Deploy to dev environment
-
+//Jenkinsfile in LocalMachine
 pipeline {
     agent any
-    
+
     environment {
         REPO_URL = 'https://github.com/Thanhlam43k4/Microservices_Nodejs.git'
         FE_IMAGE_ID = 'thanhlam2k4/microservice-fe'
@@ -15,13 +15,11 @@ pipeline {
         PROJECT_DIRECTORY = 'Microservices_Nodejs'
         DEV_IP_ADDRESS = '192.168.56.105'
         STAGING_IP_ADDRESS = '192.168.56.110'
-        STAGING_USER ='thanhlam'
+        STAGING_USER = 'thanhlam'
         JENKINS_SSH_KEY = 'jenkins-ssh-key'
         STAGING_SUDO_PWD = credentials('staging_sudo_pwd')
         GITHUB_TOKENS = 'github-token'
     }
-
-
 
     stages {
         stage('Pulling source code') {
@@ -50,9 +48,8 @@ pipeline {
 
                 sh 'docker images'
                 withDockerRegistry(credentialsId: "${JENKINS_DOCKERHUB_CREDENTIALS}", url: 'https://index.docker.io/v1/') {
-
                     echo 'Push to Dockerhub Registry'
-                    
+
                     sh 'docker push ${CUSTOMER_IMAGE_ID}'
 
                     sh 'docker push ${SHOPPING_IMAGE_ID}'
@@ -60,7 +57,6 @@ pipeline {
                     sh 'docker push ${PRODUCT_IMAGE_ID}'
 
                     sh 'docker push ${FE_IMAGE_ID}'
-                    
                 }
             }
         }
@@ -86,7 +82,7 @@ pipeline {
                 sh 'docker ps'
             }
         }
-        stage('Testing Dev development') {              //Need to update with Sonarqube 
+        stage('Testing Dev development') {              //Need to update with Sonarqube
             steps {
                 //Test Product service
                 sh 'sleep 10'
@@ -99,11 +95,11 @@ pipeline {
             //
             }
         }
-        stage('Deploy to Staging'){
-            steps{
+        stage('Deploy to Staging') {
+            steps {
                     echo 'Deploy to Staging Environment'
-                    script{
-                         def deploying = "#!/bin/bash\n"+
+                    script {
+                    def deploying = '#!/bin/bash\n' +
 
                          "\necho ${STAGING_SUDO_PWD} | sudo -S  docker ps" +
 
@@ -124,7 +120,7 @@ pipeline {
         }
         stage('Testing Staging Environment')
         {
-            steps{
+            steps {
                 echo 'Testing Staging environment .....'
 
                 sh 'sleep 5'
@@ -134,11 +130,11 @@ pipeline {
                 sh 'sleep 5'
             }
         }
-        // post {
-        //     // Clean after build
-        //     always {
-        //         cleanWs()
-        //     }
-        // }
+    // post {
+    //     // Clean after build
+    //     always {
+    //         cleanWs()
+    //     }
+    // }
     }
 }
