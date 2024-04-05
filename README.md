@@ -46,6 +46,11 @@ Microservices nodejs application and intergrate ci cd and monitoring Project
 
 - Using SSH agent in Jenkins for ssh to staging machine and deploy application to this env
 
+- Deploy application to staging env with docker using ssh from jenkins
+
+=> Next Steps are setting up the Cloud Environment for Production environment
+
+### AWS Architecture
 
 
 
