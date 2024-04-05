@@ -99,44 +99,7 @@ pipeline {
             //
             }
         }
-        stage('Deploy to Staging'){
-            steps{
-                    echo 'Deploy to Staging Environment'
-                    script{
-                         def deploying = "#!/bin/bash\n"+
-
-                         "\necho ${STAGING_SUDO_PWD} | sudo -S  docker ps" + 
-
-                         "\ngit clone ${REPO_URL}" +
-
-                         "\necho ${STAGING_SUDO_PWD} | sudo docker network create ${DOCKER_NETWORK_NAME}" + 
-
-                         "\ncd ${PROJECT_DIRECTORY} && echo ${STAGING_SUDO_PWD} | sudo docker compose up ${MYSQL_SERVICE_DEV} -d && sleep 10 &&  echo ${STAGING_SUDO_PWD} | sudo docker compose up -d" 
-
-                        sshagent(['jenkins-ssh-key']) {
-                         // some block
-                            sh """
-                                ssh -o StrictHostKeyChecking=no -i ${JENKINS_SSH_KEY} ${STAGING_USER}@${STAGING_IP_ADDRESS} "echo \\\"${deploying}\\\" > deploy.sh && chmod 777 deploy.sh && ./deploy.sh"
-                               """
-                        }
-                    }
-            }
-        }
-
-
-        stage('Testing Staging Environment')
-        {
-            steps{
-                echo 'Testing Staging environment .....'
-
-                sh 'sleep 5'
-
-                sh 'curl ${STAGING_IP_ADDRESS}'
-
-
-                sh 'sleep 5'
-            }
-        }
+        
         // post {
         //     // Clean after build
         //     always {
